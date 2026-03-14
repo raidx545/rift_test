@@ -1,0 +1,255 @@
+%% ============================================================
+%%  RAJ PORWAL — Curriculum Vitae
+%%  Compiler : pdfLaTeX  (works on Overleaf default settings)
+%% ============================================================
+
+\documentclass[10pt, a4paper]{article}
+
+% ── Encoding & fonts ──────────────────────────────────────
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+
+% ── Layout ────────────────────────────────────────────────
+\usepackage[
+  top=16mm, bottom=16mm,
+  left=18mm, right=18mm
+]{geometry}
+
+% ── Packages ──────────────────────────────────────────────
+\usepackage{parskip}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{array}
+\usepackage{soul}          % letter spacing via \textls
+\usepackage{relsize}       % relative font sizes
+
+% ── Colours ───────────────────────────────────────────────
+\definecolor{ink}{HTML}{1a1612}
+\definecolor{mid}{HTML}{5a4f45}
+\definecolor{faint}{HTML}{9a8e82}
+\definecolor{accent}{HTML}{c84b0f}
+\definecolor{accentB}{HTML}{2a5caa}
+\definecolor{tagbg}{HTML}{ede8e0}
+\definecolor{rule}{HTML}{cec6bc}
+
+% ── Hyperlinks ────────────────────────────────────────────
+\hypersetup{
+  colorlinks = true,
+  urlcolor   = accentB,
+  linkcolor  = accentB,
+  pdftitle   = {Raj Porwal - CV},
+  pdfauthor  = {Raj Porwal}
+}
+
+% ── Base colour ───────────────────────────────────────────
+\color{ink}
+
+% ── Spacing ───────────────────────────────────────────────
+\setlength{\parskip}{3.5pt}
+\setlength{\parindent}{0pt}
+
+% ── Section style ─────────────────────────────────────────
+\titleformat{\section}
+  {\small\scshape\color{faint}\ls{150}}
+  {}{0em}{}
+  [\vspace{1pt}{\color{rule}\hrule height 0.4pt}\vspace{3pt}]
+
+\titlespacing{\section}{0pt}{18pt}{7pt}
+
+% ── Subsection (project names) ────────────────────────────
+\titleformat{\subsection}
+  {\normalsize\itshape\color{ink}}
+  {}{0em}{}
+
+\titlespacing{\subsection}{0pt}{12pt}{1pt}
+
+% ── letter-spacing helper ─────────────────────────────────
+\sodef\ls{}{.18em}{.4em}{.4em}
+
+% ── Custom commands ───────────────────────────────────────
+
+% \cvtag{text} — grey pill tag
+\newcommand{\cvtag}[1]{%
+  \colorbox{tagbg}{%
+    \texttt{\relsize{-2}\color{mid}\,#1\,}%
+  }\hspace{1.5pt}%
+}
+
+% \edentry{Institution}{Degree/Detail}{Status}
+\newcommand{\edentry}[3]{%
+  \vspace{3pt}%
+  \textbf{#1}\hfill{\texttt{\relsize{-2}\color{faint}#3}}\\[-1pt]
+  {\small\color{mid}#2}%
+  \vspace{3pt}%
+}
+
+% \projhead{Title}{Tagline}
+\newcommand{\projhead}[2]{%
+  \subsection*{#1}%
+  \vspace{-3pt}%
+  {\texttt{\relsize{-2}\color{faint}#2}}%
+  \vspace{3pt}%
+}
+
+% thin rule between projects
+\newcommand{\pdiv}{%
+  \vspace{4pt}%
+  {\color{rule}\hrule height 0.3pt}%
+  \vspace{8pt}%
+}
+
+% ── No page numbers ───────────────────────────────────────
+\pagestyle{empty}
+
+%% ============================================================
+\begin{document}
+%% ============================================================
+
+% ── HEADER ───────────────────────────────────────────────
+{\LARGE\textbf{Raj Porwal}}
+
+\vspace{5pt}
+
+{\small\color{mid}%
+  \href{mailto:raazporwal6@gmail.com}{raazporwal6@gmail.com}%
+  \enspace\textbullet\enspace 7078525809%
+  \enspace\textbullet\enspace Ghaziabad, Uttar Pradesh%
+}
+
+{\small\color{mid}%
+  \href{https://linkedin.com/in/raj-porwal-329493216}{linkedin.com/in/raj-porwal-329493216}%
+  \enspace\textbullet\enspace%
+  \href{https://twitter.com/raaz_porwal}{@raaz\_porwal}%
+}
+
+\vspace{5pt}
+{\color{rule}\hrule height 0.8pt}
+\vspace{10pt}
+
+% ── ABOUT ────────────────────────────────────────────────
+\section{\ls{about}}
+
+CS undergrad building software that thinks and acts on its own. My work sits at the intersection of AI agents, backend systems, and real-world problems --- things that run unsupervised or talk to hardware. Competed in 10+ hackathons because there's nothing quite like shipping something real in 36 hours and watching it work.
+
+% ── EDUCATION ────────────────────────────────────────────
+\section{\ls{education}}
+
+\edentry{ABES Engineering College, Ghaziabad}{B.Tech --- Computer Science \& Engineering}{Pursuing}
+\edentry{Jyotri Academy, Bharthana, Etawah}{12\textsuperscript{th} Standard}{Completed}
+\edentry{Jyotri Academy, Bharthana, Etawah}{10\textsuperscript{th} Standard}{Completed}
+
+% ── SKILLS ───────────────────────────────────────────────
+\section{\ls{skills}}
+
+\begin{tabularx}{\linewidth}{@{} >{\color{faint}\texttt{\relsize{-2}}}l X @{}}
+  AI / Agents  & \cvtag{Agentic AI} \cvtag{LLM Integration} \cvtag{RAG Systems} \cvtag{Multi-step Reasoning} \\[5pt]
+  Vision       & \cvtag{YOLO} \cvtag{OpenCV} \cvtag{Computer Vision} \\[5pt]
+  Backend      & \cvtag{Python} \cvtag{Java} \cvtag{REST APIs} \cvtag{System Design} \\[5pt]
+  Full Stack   & \cvtag{Frontend} \cvtag{Backend} \cvtag{Web Dev} \\[5pt]
+  DevOps       & \cvtag{CI/CD} \cvtag{GitHub Actions} \cvtag{Docker} \\[5pt]
+  Hardware     & \cvtag{ESP32} \cvtag{IoT} \cvtag{Embedded Systems} \\[5pt]
+  Other        & \cvtag{Razorpay API} \cvtag{Time Series} \cvtag{ML} \cvtag{Data Viz} \\
+\end{tabularx}
+
+% ── PROJECTS ─────────────────────────────────────────────
+\section{\ls{projects}}
+
+\projhead{Chakravyuh AI}{the scammer's worst nightmare}
+
+Most anti-scam tools flag and block. Chakravyuh AI goes further --- an autonomous agent that \textbf{actively engages with scammers} in real conversation, wastes their time, learns their tactics, and protects real people. Built with multi-turn LLM reasoning and an adaptive response strategy.
+
+\smallskip
+\cvtag{Agentic AI} \cvtag{LLM} \cvtag{Python} \cvtag{Multi-turn Reasoning} \cvtag{NLP}
+
+\pdiv
+
+\projhead{NAV Predictor}{mutual fund intelligence for everyday investors}
+
+Predicts the next NAV (Net Asset Value) of mutual funds using time-series models and delivers a plain \textbf{Buy / Hold / Sell} recommendation. Interactive graphs show historical NAV alongside the predicted curve --- users see the reasoning, not just the answer.
+
+\smallskip
+\cvtag{Python} \cvtag{Time Series} \cvtag{ML} \cvtag{Data Viz} \cvtag{Finance}
+
+\pdiv
+
+\projhead{CI/CD Pipeline Healer}{DevOps that fixes itself}
+
+When a pipeline breaks, this agent diagnoses the failure, writes the fix, and opens a \textbf{GitHub Pull Request} automatically. No manual debugging, no Slack pings.
+Live: \href{https://ai-dev-autonomous-ci-cd-healing-age.vercel.app/}{\texttt{ai-dev-autonomous-ci-cd-healing-age.vercel.app}}
+
+\smallskip
+\cvtag{Python} \cvtag{GitHub Actions} \cvtag{Agentic AI} \cvtag{DevOps}
+
+\pdiv
+
+\projhead{CampusAI}{RAG for campus life}
+
+A retrieval-augmented AI assistant that answers questions using actual institutional documents --- circulars, timetables, exam schedules. Grounded answers with source citations, not hallucinations.
+
+\smallskip
+\cvtag{RAG} \cvtag{LLM} \cvtag{Vector DB} \cvtag{Python}
+
+\pdiv
+
+\projhead{Coaching Website}{full-stack institute management}
+
+Notes upload, marks entry, student dashboards, teacher controls, role-based access. Built for and used by actual students at a coaching institute.
+
+\smallskip
+\cvtag{Full Stack} \cvtag{Web Dev}
+
+\pdiv
+
+\projhead{YOLO Object Detection}{real-time vision}
+
+Object detection pipeline using YOLOv8. Runs on live camera feeds. Built end-to-end from frame capture to bounding box output.
+
+\smallskip
+\cvtag{Python} \cvtag{YOLO} \cvtag{OpenCV} \cvtag{Deep Learning}
+
+\pdiv
+
+\projhead{Home Automation with LLM + ESP32}{your house, but it listens}
+
+Connected an LLM to an ESP32 microcontroller. Say what you want --- the model parses intent and sends the right command to hardware over serial/MQTT.
+
+\smallskip
+\cvtag{ESP32} \cvtag{LLM} \cvtag{IoT} \cvtag{Python} \cvtag{Embedded}
+
+\pdiv
+
+\projhead{Diwali Donation Website}{simple giving, done right}
+
+Clean donation platform with Razorpay integration. Mobile-friendly, handled real payments, shipped fast.
+
+\smallskip
+\cvtag{Web Dev} \cvtag{Razorpay} \cvtag{JavaScript}
+
+% ── ACHIEVEMENTS ─────────────────────────────────────────
+\section{\ls{achievements}}
+
+\begin{itemize}[leftmargin=1.4em, itemsep=2pt, topsep=2pt]
+  \item Participated in \textbf{10+ national-level hackathons} across India
+  \item Reached \textbf{semifinals} at RIFT Noida 24-hour Hackathon (CI/CD Pipeline Healer)
+  \item Building production-level agentic AI systems as an undergraduate
+\end{itemize}
+
+% ── CONTACT ──────────────────────────────────────────────
+\section{\ls{contact}}
+
+\begin{tabularx}{\linewidth}{@{} >{\color{faint}\texttt{\relsize{-2}}}l X @{}}
+  Email    & \href{mailto:raazporwal6@gmail.com}{raazporwal6@gmail.com} \\[4pt]
+  Phone    & 7078525809 \\[4pt]
+  LinkedIn & \href{https://linkedin.com/in/raj-porwal-329493216}{linkedin.com/in/raj-porwal-329493216} \\[4pt]
+  Twitter  & \href{https://twitter.com/raaz_porwal}{@raaz\_porwal} \\[4pt]
+  Location & Ghaziabad, Uttar Pradesh \\
+\end{tabularx}
+
+\end{document}
+%% ============================================================
